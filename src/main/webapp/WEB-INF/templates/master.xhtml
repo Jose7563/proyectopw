@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="pageTitle">Taller</ui:insert></title>
+
+	<h:outputStylesheet library="webjars"
+		name="bootstrap/4.3.1/css/bootstrap.min-jsf.css" />
+	<h:outputStylesheet library="webjars"
+		name="bootstrap/4.3.1/css/bootstrap-theme.min-jsf.css" />
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/4.5.0/css/font-awesome.min-jsf.css" />
+	<h:outputScript library="webjars" name="jquery/2.1.4/jquery.min.js" />
+	<h:outputScript library="webjars"
+		name="bootstrap/4.3.1/js/bootstrap.min.js" />
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<h:outputScript library="webjars" name="jquery/2.1.4/jquery.min.js" />
+	<h:outputStylesheet library="css" name="index.css" />
+</h:head>
+
+<body>
+
+
+	<ui:insert name="header">
+		<h:form>
+			<p:menubar autoDisplay="false">
+				<p:submenu label="Mantenedores" icon="ui-icon-pencil">
+					<p:menuitem icon="ui-icon-document" value="Cliente"
+						url="/cliente/list.xhtml" />
+				</p:submenu>
+				<p:submenu label="Productos" icon="ui-icon-pencil">
+					<p:menuitem icon="ui-icon-document" value="Producto"
+						url="/cliente/list.xhtml" />
+				</p:submenu>
+
+			</p:menubar>
+		</h:form>
+	</ui:insert>
+
+	<ui:insert name="content">
+
+	</ui:insert>
+
+
+	<ui:insert name="footer">
+		<div>Copyright © 2019. Todos los derechos reservados</div>
+	</ui:insert>
+</body>
+
+</html>
