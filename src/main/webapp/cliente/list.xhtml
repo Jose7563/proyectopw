@@ -10,62 +10,59 @@
 
 	<ui:composition template="/WEB-INF/templates/master.xhtml">
 		<ui:define name="content">
-		
+
 			<h:form id="frm">
 				<p:growl id="men" />
 
 				<p:toolbar>
 					<f:facet name="right">
 						<p:commandButton value="Nuevo" icon="ui-icon-disk"
-						  action="#{clienteController.newCliente()}"
-						  ajax="false"/>
-						
-<!-- 						 <p:commandButton value="Editar" icon="ui-icon-disk" -->
-<!-- 						  action="#{productController.editProduct()}" -->
-<!-- 						  ajax="false"/> -->
-						
+							action="#{clienteController.newCliente()}" ajax="false" />
+
+						<p:commandButton value="Editar" icon="ui-icon-disk"
+							action="#{clienteController.editCliente()}" ajax="false" />
+
 
 					</f:facet>
 				</p:toolbar>
 
 
-<!-- 				<p:panelGrid id="panGriBuscador" columns="3" style="width:100%"> -->
-<!-- 					<p:outputLabel value="Buscar Por Nombre:" for="txtSearchName" /> -->
-<!-- 					<p:inputText id="txtSearchName"  value="#{productController.filterName}" /> -->
-<!-- 					<p:commandButton icon="ui-icon-search"  -->
-<!-- 					  actionListener="#{productController.searchProductByName}" -->
-<!-- 					  update=":frm:datTabProducts :frm:men"/> -->
-<!-- 				</p:panelGrid> -->
+				<!-- 				<p:panelGrid id="panGriBuscador" columns="3" style="width:100%"> -->
+				<!-- 					<p:outputLabel value="Buscar Por Nombre:" for="txtSearchName" /> -->
+				<!-- 					<p:inputText id="txtSearchName"  value="#{productController.filterName}" /> -->
+				<!-- 					<p:commandButton icon="ui-icon-search"  -->
+				<!-- 					  actionListener="#{productController.searchProductByName}" -->
+				<!-- 					  update=":frm:datTabProducts :frm:men"/> -->
+				<!-- 				</p:panelGrid> -->
 
 
 
 				<p:dataTable id="datTabClientes"
 					emptyMessage="No existen Clientes registrados"
 					value="#{clienteController.clientes}" var="cliente"
-					rowKey="#{cliente.id}"
-					paginator="true" rows="10" >
-					
-<!-- 					<p:ajax event="rowSelect" -->
-<!-- 						listener="#{productController.selectProduct}" /> -->		
+					rowKey="#{cliente.id}" paginator="true" rows="10">
+
+					<p:ajax event="rowSelect"
+						listener="#{clienteController.selectCliente()}" />
 
 					<p:column headerText="Id">
 						<p:outputLabel value="#{cliente.id}" />
 					</p:column>
-					
-					
+
+
 					<p:column headerText="Nombre">
 						<p:outputLabel value="#{cliente.nombre}" />
 					</p:column>
-					
-					
+
+
 					<p:column headerText="Apellidos">
 						<p:outputLabel value="#{cliente.apellidos}" />
 					</p:column>
-				
+					
 				</p:dataTable>
 
 			</h:form>
-			
+
 		</ui:define>
 	</ui:composition>
 

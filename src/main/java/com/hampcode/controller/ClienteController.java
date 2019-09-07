@@ -26,9 +26,9 @@ public class ClienteController implements Serializable {
 	private ClienteBusiness clienteBusiness;
 
 	// Objetos a utilizar en la vista
-	private Cliente cliente;  //NuevoProducto
-	private List<Cliente> clientes; //ListaProductos
-	private Cliente clienteSelect; //Producto Seleccionado Editar
+	private Cliente cliente;  //NuevoCliente
+	private List<Cliente> clientes; //ListaClientes
+	private Cliente clienteSelect; //Cliente Seleccionado Editar
 	private String filterName; // Criterio de Busqueda
 
 	// metodos a utlizar en la vista
@@ -37,7 +37,7 @@ public class ClienteController implements Serializable {
 	public void init() {
 		cliente = new Cliente();
 		clientes = new ArrayList<Cliente>();
-		getAllClientes();
+		getAllClientes();  // Ya deben estar cargados los clientes cuando cargaue la pagina 
 	}
 
 	public void getAllClientes() {
@@ -49,7 +49,7 @@ public class ClienteController implements Serializable {
 	}
 
 	public String newCliente() {
-		resetForm();
+		resetForm();              // crea un cliente en blanco para ser inicializado 
 		return "insert.xhtml";
 	}
 
@@ -57,6 +57,7 @@ public class ClienteController implements Serializable {
 		return "list.xhtml";
 	}
 
+	
 	public String saveCliente() {
 		String view = "";
 		try {
@@ -69,9 +70,9 @@ public class ClienteController implements Serializable {
 				Message.messageInfo("Registro guardado exitosamente");
 
 			}
-			this.getAllClientes();
-			resetForm();
-			view = "list";
+			this.getAllClientes();  // carga los clientes 
+			resetForm();            // crea un nuevo cliente  
+			view = "list";			// y lo redireccion a la lista 
 		} catch (Exception e) {
 			Message.messageError("Error Cliente :" + e.getStackTrace());
 		}
@@ -87,27 +88,28 @@ public class ClienteController implements Serializable {
 
 				view = "update";// Vista
 			} else {
-				Message.messageInfo("Debe seleccionar un producto");
+				Message.messageInfo("Debe seleccionar un cliente");
 			}
 		} catch (Exception e) {
-			Message.messageError("Error Product :" + e.getMessage());
+			Message.messageError("Error Cliente :" + e.getMessage());
 		}
 
 		return view;
 	}
 
+	
 	public void searchProductByName() {
 		try {
 
 			clientes = clienteBusiness.findByName(this.filterName.trim());
 			resetForm();
 			if (clientes.isEmpty()) {
-				Message.messageInfo("No se encontraron productos");
+				Message.messageInfo("No se encontraron clientes");
 
 			}
 
 		} catch (Exception e) {
-			Message.messageError("Error Product Search :" + e.getMessage());
+			Message.messageError("Error Cliente  :" + e.getMessage());
 		}
 	}
 
@@ -120,6 +122,11 @@ public class ClienteController implements Serializable {
 		this.cliente = new Cliente();
 	}
 
+	
+	
+	
+	
+	
 	
 	
 	

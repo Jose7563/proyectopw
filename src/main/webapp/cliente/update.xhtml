@@ -15,36 +15,28 @@
 				<p:growl id="men" />
 
 				<p:toolbar>
-					<f:facet name="right">
+					<f:facet name="left">
 						<p:commandButton value="Guardar" icon="ui-icon-disk" 
-						action="#{}" ajax="false"/>
+						action="#{clienteController.saveCliente()}" ajax="false"/>
 
 						<p:commandButton value="Regresar" icon="ui-icon-disk"
-						  action="#{}"
+						  action="#{clienteController.listCliente()}"
 						  immediate="true"
 						  ajax="false"/>
 					</f:facet>
 				</p:toolbar>
 
 
-<!-- 				<p:panelGrid id="panGridProduct" columns="2" style="width:100%"> -->
-<!-- 					<p:outputLabel value="Producto:" for="txtName" /> -->
-<!-- 					<p:inputText id="txtName" required="true" maxlength="45" -->
-<!-- 						value="#{productController.product.name}" /> -->
-<!-- 					<p:outputLabel value="Proveedor" for="txtSupplier" /> -->
-<!-- 					<p:inputText id="txtSupplier" required="true" maxlength="45" -->
-<!-- 						value="#{productController.product.supplier}" /> -->
-<!-- 					<p:outputLabel value="Categoria" for="txtCategory" /> -->
-<!-- 					<p:inputText id="txtCategory" required="true" maxlength="45" -->
-<!-- 						value="#{productController.product.category}" /> -->
-<!-- 					<p:outputLabel value="Precio Unitario" for="txtUnitPrice" /> -->
-<!-- 					<p:inputText id="txtUnitPrice" required="true" maxlength="45" -->
-<!-- 						value="#{productController.product.unitPrice}" /> -->
-<!-- 					<p:outputLabel value="Stock" for="txtStock" /> -->
-<!-- 					<p:inputText id="txtStock" required="true" maxlength="45" -->
-<!-- 						value="#{productController.product.unitsInStock}" /> -->
-<!-- 				</p:panelGrid> -->
-<!-- 				<br></br> -->
+				<p:panelGrid id="panGridCliente" columns="2" style="width:50%">
+					<p:outputLabel value="Nombre:" for="txtName" />
+					<p:inputText id="txtName" required="true" maxlength="45"
+						value="#{clienteController.cliente.nombre}" />
+					<p:outputLabel value="Apellidos" for="txtApellidos" />
+					<p:inputText id="txtApellidos" required="true" maxlength="45"
+						value="#{clienteController.cliente.apellidos}" />
+					
+				</p:panelGrid>
+				<br></br>
 
 
 
