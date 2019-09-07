@@ -1,6 +1,6 @@
 # proyectopw
 
-Esta aplicación es un proyecto Java tipo web, el cual tiene 
+-Esta aplicación es un proyecto Java tipo web, el cual tiene 
 como finalidad proveer al usuario un sistema .
  
  ## Construido  con
