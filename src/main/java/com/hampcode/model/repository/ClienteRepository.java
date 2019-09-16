@@ -13,7 +13,7 @@ import com.hampcode.model.entity.Cliente;
 
 
 @Named
-public class ClienteRepository implements RepositoryBase<Cliente>, Serializable {
+public class ClienteRepository implements IClienteRepository<Cliente>, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,14 +21,16 @@ public class ClienteRepository implements RepositoryBase<Cliente>, Serializable 
 	private EntityManager em;
 
 	@Override
-	public void insert(Cliente entidad) throws Exception {
+	public Long insert(Cliente entidad) throws Exception {
 		em.persist(entidad);
+		return entidad.getId();
 
 	}
 
 	@Override
-	public void update(Cliente entidad) throws Exception {
+	public Long update(Cliente entidad) throws Exception {
 		em.merge(entidad);
+		return entidad.getId(); 
 
 	}
 

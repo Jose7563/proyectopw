@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title><ui:insert name="pageTitle">Taller</ui:insert></title>
+	<title><ui:insert name="pageTitle">FarmaSAC</ui:insert></title>
 
 	<h:outputStylesheet library="webjars"
 		name="bootstrap/4.3.1/css/bootstrap.min-jsf.css" />
@@ -33,7 +33,7 @@
 				</p:submenu>
 				<p:submenu label="Productos" icon="ui-icon-pencil">
 					<p:menuitem icon="ui-icon-document" value="Producto"
-						url="/cliente/list.xhtml" />
+						url="/producto/listProduct.xhtml" />
 				</p:submenu>
 
 			</p:menubar>
@@ -47,6 +47,19 @@
 
 	<ui:insert name="footer">
 		<div>Copyright © 2019. Todos los derechos reservados</div>
+		<p:stack icon="/resources/images/proceso/portafolio.png" expanded="false">
+
+			<p:menuitem value="Ventas del día"
+				icon="/resources/images/proceso/doc.png"
+				url="/cliente/insert.xhtml" />
+			<p:menuitem value="Ventas del mes"
+				icon="/resources/images/proceso/doc1.png"
+				url="/cliente/insert.xhtml" />
+			<p:menuitem value="Facturación"
+				icon="/resources/images/proceso/doc2.png"
+				url="/cliente/insert.xhtml" />
+
+		</p:stack>
 	</ui:insert>
 </body>
 

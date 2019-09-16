@@ -10,9 +10,32 @@
 
 	<ui:composition template="/WEB-INF/templates/master.xhtml">
 		<ui:define name="content">
-			<h:form id="frm">
-				
-			</h:form>
+
+
+			<div class="caja">
+				<div class="container  py-4">
+					<h:form class="form-signin py-4">
+						<h:graphicImage library="images" name="spring.png" class="mb-4"
+							alt="" width="72" height="72"></h:graphicImage>
+						<h1 class="h3 mb-3 font-weight-normal">Ingresar
+							Cuenta</h1>
+
+						<p:panelGrid columns="2">
+							<p:outputLabel for="usuario" value="Usuario"></p:outputLabel>
+							<p:inputText id="usuario" value=""></p:inputText>
+							<p:outputLabel for="clave" value="Clave"></p:outputLabel>
+							<p:inputText id="clave" value=""></p:inputText>
+
+						</p:panelGrid>
+						<h:commandButton class="btn btn-primary" value="Sign in"
+							action="#{productoController.listProducto()}"></h:commandButton>
+						<p class="mt-5 mb-3 text-muted text-center ">&copy; 2019</p>
+
+					</h:form>
+
+				</div>
+			</div>
+
 		</ui:define>
 	</ui:composition>
 

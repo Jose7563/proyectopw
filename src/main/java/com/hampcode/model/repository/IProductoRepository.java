@@ -3,14 +3,14 @@ package com.hampcode.model.repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface RepositoryBase<E> {
+public interface IProductoRepository<E> {
 	
 	
 	
-	public void insert(E entidad) throws Exception ;
+	public Long insert(E entidad) throws Exception ;
 	
 	
-	public void update(E entidad) throws Exception;
+	public Long update(E entidad) throws Exception;
 	
 	
 	public void delete(E entidad) throws Exception ;
