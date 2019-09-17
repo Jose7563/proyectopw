@@ -114,6 +114,11 @@ public class ProductoController implements Serializable {
 
 	
 	
+	public String detailProduct() {
+		String view="/producto/detalleProduct";
+				return view ;
+	}
+	
 	public void selectProducto(SelectEvent e) {
 		this.productSelect = (Producto) e.getObject();
 	}
