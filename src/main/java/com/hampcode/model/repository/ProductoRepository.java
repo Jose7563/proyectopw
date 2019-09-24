@@ -12,30 +12,30 @@ import javax.persistence.TypedQuery;
 
 import com.hampcode.model.entity.Producto;
 @Named
-public class ProductoRepository  implements IProductoRepository<Producto> ,Serializable{
+public class ProductoRepository  implements Serializable{
 
 
 	@PersistenceContext(unitName = "pwPU")
 	private EntityManager em ; 
 	
-	@Override
+	
 	public Long insert(Producto entidad) throws Exception {
 		em.persist(entidad);
 		return entidad.getId();
 	}
 
-	@Override
+	
 	public Long update(Producto entidad) throws Exception {
 		em.merge(entidad);
 		return entidad.getId();
 	}
 
-	@Override
+	
 	public void delete(Producto entidad) throws Exception {
 		em.remove(entidad);
 	}
 
-	@Override
+	
 	public List<Producto> findAll() throws Exception {
 		List<Producto> products=new ArrayList<Producto>();
 		
@@ -45,7 +45,7 @@ public class ProductoRepository  implements IProductoRepository<Producto> ,Seria
 		return products;
 	}
 
-	@Override
+	
 	public Optional<Producto> findById(Long id) throws Exception {
 		
 		Producto product; 
@@ -60,7 +60,7 @@ public class ProductoRepository  implements IProductoRepository<Producto> ,Seria
 		return Optional.of(product);
 	}
 
-	@Override
+	
 	public List<Producto> findByName(String name) throws Exception {
 		
 		List<Producto> products;

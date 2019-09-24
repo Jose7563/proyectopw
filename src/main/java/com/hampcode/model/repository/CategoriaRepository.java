@@ -13,34 +13,33 @@ import javax.persistence.TypedQuery;
 import com.hampcode.model.entity.Categoria;
 
 @Named
-public class CategoriaRepository implements ICategoriaRepository<Categoria>, Serializable {
+public class CategoriaRepository implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext(unitName = "pwPU")
 	private EntityManager em;
 
-	@Override
+	
 	public Long insert(Categoria entidad) throws Exception {
 		// TODO Auto-generated method stub
 		em.persist(entidad);
 		return entidad.getId();
 	}
 
-	@Override
+	
 	public Long update(Categoria entidad) throws Exception {
 		// TODO Auto-generated method stub
 		em.merge(entidad);
 		return entidad.getId();
 	}
 
-	@Override
 	public void delete(Categoria entidad) throws Exception {
 		// TODO Auto-generated method stub
 		em.remove(entidad);
 	}
 
-	@Override
+	
 	public List<Categoria> findAll() throws Exception {
 		// TODO Auto-generated method stub
 		List<Categoria> categorias = new ArrayList<Categoria>();
@@ -51,7 +50,7 @@ public class CategoriaRepository implements ICategoriaRepository<Categoria>, Ser
 		return categorias;
 		}
 
-	@Override
+	
 	public Optional<Categoria> findById(Long id) throws Exception {
 		// TODO Auto-generated method stub
 
@@ -65,7 +64,7 @@ public class CategoriaRepository implements ICategoriaRepository<Categoria>, Ser
 		return Optional.of(categoria);
 	}
 
-	@Override
+	
 	public List<Categoria> findByName(String name) throws Exception {
 		// TODO Auto-generated method stub
 

@@ -12,8 +12,7 @@ import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
 
 import com.hampcode.business.CategoriaBusiness;
-import com.hampcode.business.ICategoriaBusiness;
-import com.hampcode.business.IProductoBusiness;
+import com.hampcode.business.ProductoBusiness;
 import com.hampcode.model.entity.Categoria;
 import com.hampcode.model.entity.Producto;
 import com.hampcode.util.Message;
@@ -26,9 +25,9 @@ public class ProductoController implements Serializable {
 
 	// Inject
 	@Inject
-	private IProductoBusiness<Producto> productoBusiness;
+	private ProductoBusiness productoBusiness;
 	@Inject
-	private ICategoriaBusiness<Categoria> categoriaBusiness;
+	private CategoriaBusiness categoriaBusiness;
 
 	// Objetos a utilizar en la vista
 	private Producto producto;  //NuevoCliente
@@ -152,6 +151,8 @@ public class ProductoController implements Serializable {
 
 	// ************ getters y setters **************+
 
+	
+
 	public Producto getProducto() {
 		return producto;
 	}
@@ -192,13 +193,7 @@ public class ProductoController implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public IProductoBusiness<Producto> getProductoBusiness() {
-		return productoBusiness;
-	}
-
-	public void setProductoBusiness(IProductoBusiness<Producto> productoBusiness) {
-		this.productoBusiness = productoBusiness;
-	}
+	
 
 	public List<Categoria> getCategorias() {
 		return categorias;

@@ -9,43 +9,40 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import com.hampcode.model.entity.Producto;
-import com.hampcode.model.repository.IProductoRepository;
+import com.hampcode.model.repository.ProductoRepository;
 
 @Named
-public class ProductoBusiness implements IProductoBusiness<Producto>,Serializable{
+public class ProductoBusiness implements Serializable{
 
 	@Inject
-	private IProductoRepository<Producto> productoRepository; 
+	private ProductoRepository productoRepository; 
 	
 	@Transactional
-	@Override
 	public Long insert(Producto entidad) throws Exception {
 		return productoRepository.insert(entidad); 
 	}
 
 	@Transactional
-	@Override
 	public Long update(Producto entidad) throws Exception {
 		return productoRepository.update(entidad);
 	}
 
 	@Transactional
-	@Override
 	public void delete(Producto entidad) throws Exception {
 		productoRepository.delete(entidad);
 	}
 
-	@Override
+
 	public List<Producto> findAll() throws Exception {
 		return productoRepository.findAll();
 	}
 
-	@Override
+	
 	public Optional<Producto> findById(Long id) throws Exception {
 		return productoRepository.findById(id);
 	}
 
-	@Override
+	
 	public List<Producto> findByName(String name) throws Exception {
 		return productoRepository.findByName(name);
 	}

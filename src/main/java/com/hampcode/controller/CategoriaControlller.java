@@ -11,7 +11,7 @@ import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
 
-import com.hampcode.business.ICategoriaBusiness;
+import com.hampcode.business.CategoriaBusiness;
 import com.hampcode.model.entity.Categoria;
 import com.hampcode.util.Message;
 
@@ -26,7 +26,7 @@ public class CategoriaControlller implements Serializable {
 
 		// Inject
 		@Inject
-		private ICategoriaBusiness<Categoria> categoriaBusiness;
+		private CategoriaBusiness categoriaBusiness;
 
 		// Objetos a utilizar en la vista
 		private Categoria categoria;  //NuevoCliente
