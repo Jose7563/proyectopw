@@ -10,44 +10,52 @@
 
 	<ui:composition template="/WEB-INF/templates/master.xhtml">
 		<ui:define name="content">
-		
+
 			<h:form id="frm">
 				<p:growl id="men" />
 
 				<p:toolbar>
 					<f:facet name="left">
-						<p:commandButton value="Guardar" icon="ui-icon-disk" 
-						action="#{productoController.saveProduct()}" ajax="false"/>
+						<p:commandButton value="Guardar" icon="ui-icon-disk"
+							action="#{productoController.saveProduct()}" ajax="false" />
 
 						<p:commandButton value="Regresar" icon="ui-icon-disk"
-						  action="#{productoController.listProducto()}"
-						  immediate="true"
-						  ajax="false"/>
+							action="#{productoController.listProducto()}" immediate="true"
+							ajax="false" />
 					</f:facet>
 				</p:toolbar>
 
 
-				<p:panelGrid id="panGridCliente" columns="2" style="width:50%">
+				<p:panelGrid id="panGridProducto" columns="2" style="width:50%">
 					<p:outputLabel value="Editando Producto" />
 					<br></br>
 					<p:outputLabel value="Nombre:" for="txtName" />
 					<p:inputText id="txtName" required="true" maxlength="45"
 						value="#{productoController.producto.nombre}" />
-					
-						<p:outputLabel value="Proveedor:" for="txtProveedor" />
-					<p:inputText id="txtProveedor" required="true" maxlength="45"
-						value="#{productoController.producto.proveedor}" />
-						
-						<p:outputLabel value="Cantidad:" for="txtCantidad" />
+
+					<p:outputLabel value="Ubicacion:" for="txtUbicaion" />
+					<p:inputText id="txtUbicacion" required="true" maxlength="45"
+						value="#{productoController.producto.ubicacion}" />
+
+					<p:outputLabel value="Cantidad:" for="txtCantidad" />
 					<p:inputText id="txtCantidad" required="true" maxlength="45"
 						value="#{productoController.producto.cantidad}" />
-						
-						<p:outputLabel value="Costo:" for="txtCosto" />
-					<p:inputText id="txtCosto" required="true" maxlength="45"
-						value="#{productoController.producto.costo}" />
-						
-						
-					
+
+					<p:outputLabel value="Fecha Vencimiento:" for="txtF" />
+					<p:inputText id="txtF" required="true" maxlength="45"
+						value="#{productoController.producto.fecha_venciminento}" />
+
+					<p:outputLabel value="Precio Unitario :" for="txtPUnitario" />
+					<p:inputText id="txtPUnitariso" required="true" maxlength="45"
+						value="#{productoController.producto.precio_unitario}" />
+
+					<p:outputLabel value="Fecha Vencimiento:" for="txtCategoria" />
+					<p:inputText id="txtCategoria" required="true" maxlength="45"
+						value="#{productoController.producto.categoria}" />
+
+
+
+
 				</p:panelGrid>
 				<br></br>
 

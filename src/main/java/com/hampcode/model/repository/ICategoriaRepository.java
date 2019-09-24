@@ -3,10 +3,8 @@ package com.hampcode.model.repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface IProductoRepository<E> {
-	
-	
-	
+public interface ICategoriaRepository<E > {
+
 	public Long insert(E entidad) throws Exception ;
 	
 	
@@ -24,6 +22,4 @@ public interface IProductoRepository<E> {
 	
 	public  List<E> findByName(String name) throws Exception;
 	
-	//
-
 }

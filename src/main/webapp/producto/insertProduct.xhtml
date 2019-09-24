@@ -12,41 +12,60 @@
 		<ui:define name="content">
 			<h:form id="frm">
 				<p:growl id="men" />
-				
+
 
 				<p:toolbar>
 					<f:facet name="right">
-						<p:commandButton value="Guardar Producto" icon="ui-icon-disk" 
-						action="#{productoController.saveProduct()}" ajax="false"/>
+						<p:commandButton value="Guardar Producto" icon="ui-icon-disk"
+							action="#{productoController.saveProduct()}" ajax="false" />
 
 						<p:commandButton value="Regresar" icon="ui-icon-disk"
-						  action="#{productoController.listProducto()}"
-						  immediate="true"
-						  ajax="false"/>
-					</f:facet> 
+							action="#{productoController.listProducto()}" immediate="true"
+							ajax="false" />
+					</f:facet>
 				</p:toolbar>
 
 
-				<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
-				
+				<p:panelGrid id="panGridProduct" columns="3" style="width:50%">
+
 					<p:outputLabel value="Nombre:" for="txtNombre" />
 					<p:inputText id="txtNombre" required="true" maxlength="45"
 						value="#{productoController.producto.nombre}" />
-				
-				<p:outputLabel value="Proveedor:" for="txtProveedor" />
-					<p:inputText id="txtProveedor" required="true" maxlength="45"
-						value="#{productoController.producto.proveedor}" />
-				
+					<p:message for="txtNombre"></p:message>
+
+					<p:outputLabel value="Ubicacion:" for="txtUbicacion" />
+					<p:inputText id="txtUbicacion" required="true" maxlength="45"
+						value="#{productoController.producto.ubicacion}" />
+
 					<p:outputLabel value="Cantidad:" for="txtCantidad" />
 					<p:inputText id="txtCantidad" required="true" maxlength="45"
 						value="#{productoController.producto.cantidad}" />
+
+					<p:outputLabel value="Categoria:" for="cboCategoria" />
+					<p:selectOneMenu id="cboCategoria" required="true" effect="drop"
+						value="#{productoController.categoria}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione una opción"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{productoController.categorias}"
+							var="categoria" itemLabel="#{categoria.nombre}"
+							itemValue="#{categoria}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Fecha Vencimineto:"
+						for="txtFechaVencimmiento" />
+					<p:inputText id="txtFechaVencimmiento" required="true"
+						maxlength="45"
+						value="#{productoController.producto.fecha_venciminento}" />
 						
-						<p:outputLabel value="Precio:" for="txtPrecio" />
-					<p:inputText id="txtPrecio" required="true" maxlength="45"
-						value="#{productoController.producto.costo}" />
-						
-						
-				
+							<p:outputLabel value="Precio Unitario:"
+						for="txtPrecioUnitario" />
+					<p:inputText id="txtPrecioUnitario" required="true"
+						maxlength="45"
+						value="#{productoController.producto.precio_unitario}" />
+
+
+
 				</p:panelGrid>
 				<br></br>
 				<br></br>

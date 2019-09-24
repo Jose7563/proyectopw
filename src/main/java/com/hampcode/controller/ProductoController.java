@@ -5,17 +5,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.event.SelectEvent;
+
+import com.hampcode.business.CategoriaBusiness;
+import com.hampcode.business.ICategoriaBusiness;
 import com.hampcode.business.IProductoBusiness;
+import com.hampcode.model.entity.Categoria;
 import com.hampcode.model.entity.Producto;
 import com.hampcode.util.Message;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class ProductoController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,18 +27,24 @@ public class ProductoController implements Serializable {
 	// Inject
 	@Inject
 	private IProductoBusiness<Producto> productoBusiness;
+	@Inject
+	private ICategoriaBusiness<Categoria> categoriaBusiness;
 
 	// Objetos a utilizar en la vista
 	private Producto producto;  //NuevoCliente
 	private List<Producto> products; //ListaClientes
 	private Producto productSelect; //Cliente Seleccionado Editar
 	private String filterName; // Criterio de Busqueda
+	private Categoria categoria;  
+	private List<Categoria> categorias; 
 
 	// metodos a utlizar en la vista
 
 	@PostConstruct
 	public void init() {
 		producto = new Producto();
+		categoria=new Categoria();
+		categorias = new ArrayList<>();
 		products = new ArrayList<Producto>();
 		getAllProductos();  // Ya deben estar cargados los clientes cuando cargaue la pagina 
 	}
@@ -48,7 +58,13 @@ public class ProductoController implements Serializable {
 	}
 
 	public String newProducto() {
-		resetForm();              // crea un producto en blanco para ser inicializado 
+		
+		
+		try {
+			this.categorias= categoriaBusiness.findAll();
+			resetForm();
+		} catch (Exception e) {
+		}
 		return "insertProduct.xhtml";
 	}
 
@@ -62,15 +78,17 @@ public class ProductoController implements Serializable {
 		try {
 
 			if (producto.getId() != null) {
+				producto.setCategoria(categoria);
 				productoBusiness.update(producto);
 				Message.messageInfo("Registro actualizado exitosamente");
 			} else {
+				producto.setCategoria(categoria);
 				productoBusiness.insert(producto);
 				Message.messageInfo("Registro guardado exitosamente");
 
 			}
-			this.getAllProductos();  // carga los clientes 
-			resetForm();            // crea un nuevo cliente  
+			this.getAllProductos();  // carga los productos
+			resetForm();            // crea un nuevo producto
 			view = "listProduct";			// y lo redireccion a la lista 
 		} catch (Exception e) {
 			Message.messageError("Error Producto :" + e.getStackTrace());
@@ -85,7 +103,7 @@ public class ProductoController implements Serializable {
 			if (this.productSelect != null) {
 				this.producto = productSelect;
 
-				view = "/producto/updateProduct";// Vista
+				view = "/producto/updateProduct";// Vista actualizar
 			} else {
 				Message.messageInfo("Debe seleccionar un producto");
 			}
@@ -127,8 +145,12 @@ public class ProductoController implements Serializable {
 		this.filterName = "";
 		this.producto = new Producto();
 	}
+	
+	
+	
+	
 
-	// getters y setters
+	// ************ getters y setters **************+
 
 	public Producto getProducto() {
 		return producto;
@@ -160,6 +182,30 @@ public class ProductoController implements Serializable {
 
 	public void setFilterName(String filterName) {
 		this.filterName = filterName;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public IProductoBusiness<Producto> getProductoBusiness() {
+		return productoBusiness;
+	}
+
+	public void setProductoBusiness(IProductoBusiness<Producto> productoBusiness) {
+		this.productoBusiness = productoBusiness;
+	}
+
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 	
