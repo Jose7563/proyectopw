@@ -12,54 +12,32 @@
 		<ui:define name="content">
 
 			<h:form id="frm">
-				<p:growl id="men" />
 
-				<p:toolbar>
-					<f:facet name="right">
-						<p:commandButton value="Nuevo Producto" icon="ui-icon-disk"
-							action="#{productoController.newProducto()}" ajax="false" />
 
-						<p:commandButton value="Editar" icon="ui-icon-disk"
-							action="#{productoController.editProducto()}" ajax="false" />
-
-					</f:facet>
-				</p:toolbar>
-
-				<p:panelGrid id="panGriBuscador" columns="3" style="width:70%">
-					<p:outputLabel value="Buscar Por Nombre:" for="txtSearchName" />
+				<p:outputLabel value="Busqueda de Cantidad" />
+				<p:panelGrid id="panGriBuscador" columns="3" style="width:100%">
+					<p:outputLabel value="Buscar Por Cantidad Minima:"
+						for="txtSearchName" />
 					<p:inputText id="txtSearchName"
 						value="#{productoController.filterName}" />
-						
-					<p:commandButton icon="ui-icon-search"
-						actionListener="#{productoController.searchProductByName()}"
-						update=":frm:datTabProducts :frm:men" />
-				</p:panelGrid>
-				
-				<p:panelGrid id="panGriBuscarUbicacion" columns="3" style="width:70%">
-					<p:outputLabel value="Buscar Por Ubicacion :" for="txtSearchUbicacion" />
-					<p:inputText id="txtSearchUbicacion"
-						value="#{productoController.filterUbicacion}" />
-						
-					<p:commandButton icon="ui-icon-search"
-						actionListener="#{productoController.searchByUbicacion()}"
-						update=":frm:datTabProducts :frm:men" />
-				</p:panelGrid>
 
-
+					<p:commandButton icon="ui-icon-search"
+						actionListener="#{stockController.searchProductByCantidad()}"
+						update=":frm:datTabProducts " />
+				</p:panelGrid>
 
 				<p:dataTable id="datTabProducts"
 					emptyMessage="No existen Productos registrados"
-					value="#{productoController.products}" var="producto" 
-					rowKey="#{producto.id}"
-					selectionMode="single"
-					selection="#{productoController.productSelect}"
-					paginator="true" rows="10">
+					value="#{productoController.products}" var="producto"
+					rowKey="#{producto.id}" selectionMode="single"
+					selection="#{productoController.productSelect}" paginator="true"
+					rows="10">
 
 					<p:ajax event="rowSelect"
 						listener="#{productoController.selectProducto()}" />
 
 					<p:column headerText="Id">
-<!-- 					<p:commandButton value="#{producto.id}" action="#{produ}"></p:commandButton>  -->
+						<!-- 					<p:commandButton value="#{producto.id}" action="#{produ}"></p:commandButton>  -->
 						<p:outputLabel value="#{producto.id}" />
 					</p:column>
 
@@ -67,36 +45,39 @@
 					<p:column headerText="Nombre">
 						<p:outputLabel value="#{producto.nombre}" />
 					</p:column>
-					
+
 					<p:column headerText="Ubicacion">
 						<p:outputLabel value="#{producto.ubicacion}" />
 					</p:column>
-					
+
 					<p:column headerText="Cantidad">
 						<p:outputLabel value="#{producto.cantidad}" />
 					</p:column>
-					<p:column headerText="Fecha Vencimiento">
+					<p:column headerText="Fecha Vencimineto">
 						<p:outputLabel value="#{producto.fecha_venciminento}" />
 					</p:column>
-					
+
 					<p:column headerText="Precio Unitario">
 						<p:outputLabel value="#{producto.precio_unitario}" />
 					</p:column>
 					<p:column headerText="Categoria ">
 						<p:outputLabel value="#{producto.categoria.id}" />
 					</p:column>
-					
-					
-					
-					
-					
+
+
+
+
+
 
 				</p:dataTable>
 
-			</h:form>
 
+
+
+
+
+			</h:form>
 		</ui:define>
 	</ui:composition>
-
 </body>
 </html>

@@ -33,7 +33,7 @@
 					<p:inputText id="txtName" required="true" maxlength="45"
 						value="#{productoController.producto.nombre}" />
 
-					<p:outputLabel value="Ubicacion:" for="txtUbicaion" />
+					<p:outputLabel value="Ubicacion:" for="txtUbicacion" />
 					<p:inputText id="txtUbicacion" required="true" maxlength="45"
 						value="#{productoController.producto.ubicacion}" />
 
@@ -42,16 +42,14 @@
 						value="#{productoController.producto.cantidad}" />
 
 					<p:outputLabel value="Fecha Vencimiento:" for="txtF" />
-					<p:inputText id="txtF" required="true" maxlength="45"
-						value="#{productoController.producto.fecha_venciminento}" />
+					<p:calendar id="txtF" required="true" 
+						value="#{productoController.producto.fecha_venciminento}" pattern="dd/MM/yyyy" />
 
 					<p:outputLabel value="Precio Unitario :" for="txtPUnitario" />
-					<p:inputText id="txtPUnitariso" required="true" maxlength="45"
+					<p:inputText id="txtPUnitario" required="true" maxlength="45"
 						value="#{productoController.producto.precio_unitario}" />
 
-					<p:outputLabel value="Fecha Vencimiento:" for="txtCategoria" />
-					<p:inputText id="txtCategoria" required="true" maxlength="45"
-						value="#{productoController.producto.categoria}" />
+					
 
 
 

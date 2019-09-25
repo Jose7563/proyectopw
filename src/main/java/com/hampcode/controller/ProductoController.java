@@ -33,7 +33,9 @@ public class ProductoController implements Serializable {
 	private Producto producto;  //NuevoCliente
 	private List<Producto> products; //ListaClientes
 	private Producto productSelect; //Cliente Seleccionado Editar
-	private String filterName; // Criterio de Busqueda
+	private String filterName; // Criterio de Busquedap
+	private String filterUbicacion; 
+	
 	private Categoria categoria;  
 	private List<Categoria> categorias; 
 
@@ -100,6 +102,8 @@ public class ProductoController implements Serializable {
 		String view = "";
 		try {
 			if (this.productSelect != null) {
+				producto.setCategoria(categoria);
+
 				this.producto = productSelect;
 
 				view = "/producto/updateProduct";// Vista actualizar
@@ -128,6 +132,22 @@ public class ProductoController implements Serializable {
 			Message.messageError("Error Producto  :" + e.getMessage());
 		}
 	}
+	
+	public void searchByUbicacion() {
+		try {
+
+			products = productoBusiness.findByUbicacion(this.filterUbicacion.trim());
+			resetForm();
+			if (products.isEmpty()) {
+				Message.messageInfo("No se encontraron ");
+
+			}
+
+		} catch (Exception e) {
+			Message.messageError("Error Producto  :" + e.getMessage());
+		}
+		
+	}
 
 	
 	
@@ -142,6 +162,7 @@ public class ProductoController implements Serializable {
 
 	public void resetForm() {
 		this.filterName = "";
+		this.filterUbicacion = ""; 
 		this.producto = new Producto();
 	}
 	
@@ -201,6 +222,14 @@ public class ProductoController implements Serializable {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public String getFilterUbicacion() {
+		return filterUbicacion;
+	}
+
+	public void setFilterUbicacion(String filterUbicacion) {
+		this.filterUbicacion = filterUbicacion;
 	}
 
 	

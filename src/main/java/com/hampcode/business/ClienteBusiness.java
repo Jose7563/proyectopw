@@ -12,7 +12,7 @@ import com.hampcode.model.entity.Cliente;
 import com.hampcode.model.repository.ClienteRepository;
 
 @Named
-public class ClienteBusiness implements IClienteBusiness<Cliente>, Serializable {
+public class ClienteBusiness implements  Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,39 +20,37 @@ public class ClienteBusiness implements IClienteBusiness<Cliente>, Serializable 
 	private ClienteRepository clienteRepository;
 
 	@Transactional
-	@Override
+	
 	public Long insert(Cliente entidad) throws Exception {
 		return clienteRepository.insert(entidad);
 
 	}
 
 	@Transactional
-	@Override
 	public Long update(Cliente entidad) throws Exception {
 		return clienteRepository.update(entidad);
 
 	}
 
 	@Transactional
-	@Override
 	public void delete(Cliente entidad) throws Exception {
 		 clienteRepository.delete(entidad);
 
 	}
 
-	@Override
+	
 	public List<Cliente> findAll() throws Exception {
 
 		return clienteRepository.findAll();
 	}
 
-	@Override
+	
 	public Optional<Cliente> findById(Long id) throws Exception {
 		
 		return clienteRepository.findById(id);
 	}
 
-	@Override
+	
 	public List<Cliente> findByName(String name) throws Exception {
 		
 		return clienteRepository.findByName(name);

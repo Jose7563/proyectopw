@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 @Entity
 @Table(name = "proveedores")
 public class Proveedor {
@@ -20,11 +21,16 @@ public class Proveedor {
 	@Column(name="email")
 	 private String email; 
 	
+//	@Size(min=9, message = "El celular debe tener 9 digitos")
 	@Column(name="telefono")
-	 private String telefono; 
+	 private Long telefono; 
 	
+//	@Size(min = 11 ,message = "EL valor del ruc  ingresado debe tener 11 digitos")
 	@Column(name="ruc")
 	 private Long ruc;
+	
+	
+	
 
 	public Long getId() {
 		return id;
@@ -50,11 +56,11 @@ public class Proveedor {
 		this.email = email;
 	}
 
-	public String getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono( Long telefono) {
 		this.telefono = telefono;
 	}
 

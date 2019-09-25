@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+
+			<h:form id="frm">
+				<p:growl id="men" />
+
+				<p:toolbar>
+					<f:facet name="right">
+						<p:commandButton value="Nuevo Proveedor" icon="ui-icon-disk"
+							action="#{proveedorController.newProveedor()}" ajax="false" />
+
+						<p:commandButton value="Editar Proveedor" icon="ui-icon-disk"
+							action="#{proveedorController.editProducto()}" ajax="false" />
+
+					</f:facet>
+				</p:toolbar>
+
+				<p:panelGrid id="panGriBuscador" columns="3" style="width:70%">
+					<p:outputLabel value="Buscar Por Nombre:" for="txtSearchName" />
+					<p:inputText id="txtSearchName"
+						value="#{proveedorController.filterName}" />
+						
+					<p:commandButton icon="ui-icon-search"
+						actionListener="#{proveedorController.searchProveedortByName()}"
+						update=":frm:datTabPro :frm:men" />
+				</p:panelGrid>
+				
+				
+
+
+
+				<p:dataTable id="datTabPro"
+					emptyMessage="No existen Proveedores registrados"
+					value="#{proveedorController.proveedores}" var="proveedor" 
+					rowKey="#{proveedor.id}"
+					selectionMode="single"
+					selection="#{proveedorController.proveedorSelect}"
+					paginator="true" rows="10">
+
+					<p:ajax event="rowSelect"
+						listener="#{proveedorController.selectProveedor()}" />
+
+					<p:column headerText="Id">
+<!-- 					<p:commandButton value="#{producto.id}" action="#{produ}"></p:commandButton>  -->
+						<p:outputLabel value="#{proveedor.id}" />
+					</p:column>
+
+
+					<p:column headerText="Nombre Epresa">
+						<p:outputLabel value="#{proveedor.nombreEmpresa}" />
+					</p:column>
+					
+					<p:column headerText="Email">
+						<p:outputLabel value="#{proveedor.email}" />
+					</p:column>
+					
+					<p:column headerText="RUC ">
+						<p:outputLabel value="#{proveedor.ruc}" />
+					</p:column>
+					<p:column headerText="Celular">
+						<p:outputLabel value="#{proveedor.telefono}" />
+					</p:column>
+					
+			
+					
+				
+				</p:dataTable>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

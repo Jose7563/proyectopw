@@ -28,13 +28,27 @@
 		<h:form>
 			<p:menubar autoDisplay="false">
 				<p:submenu label="Mantenedores" icon="ui-icon-pencil">
-					<p:menuitem icon="ui-icon-document" value="Cliente"
+					<p:menuitem icon="ui-icon-document" value="Usuario"
 						url="/cliente/list.xhtml" />
 				</p:submenu>
 				<p:submenu label="Productos" icon="ui-icon-pencil">
 					<p:menuitem icon="ui-icon-document" value="Producto"
 						url="/producto/listProduct.xhtml" />
 				</p:submenu>
+				
+				<p:submenu label="Stock" icon="ui-icon-pencil">
+					<p:menuitem icon="ui-icon-document" value="Stock"
+						url="/stock/stock_buscar.xhtml" />
+				</p:submenu>
+				<p:submenu label="Categoria" icon="ui-icon-pencil">
+					<p:menuitem icon="ui-icon-document" value="Categoria"
+						url="/categoria/listCategoria.xhtml" />
+				</p:submenu>
+				<p:submenu label="Proveedor" icon="ui-icon-pencil">
+					<p:menuitem icon="ui-icon-document" value="Proveedor"
+						url="/proveedor/listProveedor.xhtml" />
+				</p:submenu>
+				
 
 			</p:menubar>
 		</h:form>
@@ -55,7 +69,7 @@
 			<p:menuitem value="Ventas del mes"
 				icon="/resources/images/proceso/doc1.png"
 				url="/cliente/insert.xhtml" />
-			<p:menuitem value="Facturación"
+			<p:menuitem value="Ventas Semanales"
 				icon="/resources/images/proceso/doc2.png"
 				url="/cliente/insert.xhtml" />
 

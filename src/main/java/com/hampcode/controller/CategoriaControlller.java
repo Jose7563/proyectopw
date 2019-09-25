@@ -52,6 +52,7 @@ public class CategoriaControlller implements Serializable {
 		}
 
 		public String newCategoria() {
+			
 			resetForm();              // crea un producto en blanco para ser inicializado 
 			return "insertCategoria.xhtml";
 		}
@@ -89,7 +90,7 @@ public class CategoriaControlller implements Serializable {
 				if (this.categoriaSelect != null) {
 					this.categoria = categoriaSelect;
 
-					view = "updateCategoria";// Vista actualizar
+					view = "/categoria/updateCategoria";// Vista actualizar
 				} else {
 					Message.messageInfo("Debe seleccionar un Categoria");
 				}
@@ -116,8 +117,7 @@ public class CategoriaControlller implements Serializable {
 			}
 		}
 
-		
-			
+	
 		
 		public void selectCategoria(SelectEvent e) {
 			this.categoriaSelect = (Categoria) e.getObject();
@@ -128,4 +128,49 @@ public class CategoriaControlller implements Serializable {
 			this.categoria = new Categoria();
 		}
 		
+		
+		////+********geter y seters*****/
+		
+
+		public Categoria getCategoria() {
+			return categoria;
+		}
+
+		public void setCategoria(Categoria categoria) {
+			this.categoria = categoria;
+		}
+
+		public List<Categoria> getCategorias() {
+			return categorias;
+		}
+
+		public void setCategorias(List<Categoria> categorias) {
+			this.categorias = categorias;
+		}
+
+		public Categoria getCategoriaSelect() {
+			return categoriaSelect;
+		}
+
+		public void setCategoriaSelect(Categoria categoriaSelect) {
+			this.categoriaSelect = categoriaSelect;
+		}
+
+		public String getFilterName() {
+			return filterName;
+		}
+
+		public void setFilterName(String filterName) {
+			this.filterName = filterName;
+		}
+		
+		
+		
+		
+		
+		
 }
+
+
+
+

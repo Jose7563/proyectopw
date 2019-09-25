@@ -47,6 +47,10 @@ public class ProductoBusiness implements Serializable{
 		return productoRepository.findByName(name);
 	}
 	
+	
+	public List<Producto> findByUbicacion(String name) throws Exception {
+		return productoRepository.findByUbicacion(name);
+	}
 	private static final long serialVersionUID = 1L;
 
 

@@ -29,12 +29,12 @@
 				</p:toolbar>
 
 
-				<p:panelGrid id="panGridProduct" columns="3" style="width:50%">
+				<p:panelGrid id="panGridProduct" columns="2" style="width:50%">
 
 					<p:outputLabel value="Nombre:" for="txtNombre" />
 					<p:inputText id="txtNombre" required="true" maxlength="45"
 						value="#{productoController.producto.nombre}" />
-					<p:message for="txtNombre"></p:message>
+<!-- 					<p:message for="txtNombre"></p:message> -->
 
 					<p:outputLabel value="Ubicacion:" for="txtUbicacion" />
 					<p:inputText id="txtUbicacion" required="true" maxlength="45"
